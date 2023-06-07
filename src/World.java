@@ -20,6 +20,10 @@ public class World {
 		this.award = award;
 	}
 	
+	public int getId() {
+		return id;
+	}
+	
 	public NodeManager getNodeManager() {
 		return nodeManager;
 	}
@@ -32,11 +36,8 @@ public class World {
 		return completed;
 	}
 	
-	public String toString() {
-		return "World " + id + "\tcompleted: " + completed;
-	}
-	
 	public Node selectNode(ArrayList<Node> nodes) {
+		System.out.println("Now on " + nodeManager.getCurrentNode().getId());
 		System.out.println("Scegli la tua strada [1-" + nodes.size() + "]" );
 		int selection = InputData.readIntegerBetween("Inserisci il nodo da raggiungere: ", 1, nodes.size());
 		return nodes.get(selection-1);
@@ -75,7 +76,7 @@ public class World {
 	}
 	
 	public void onNode(Player player) {
-		System.out.println("Current node: " + nodeManager);
+		System.out.println("Current node: " + nodeManager.getCurrentNode());
 		if(nodeManager.onStartingNode())
 			return;
 		
@@ -96,6 +97,7 @@ public class World {
 			onNode(player);
 			if(player.isDead()) {
 				System.out.println("Il giocatore " + player.getName() + " è morto!");
+				player.lifeLost();
 				break;
 			}else if(completed) {
 				System.out.println("Il giocatore " + player.getName() + " ha battuto il boss!");
@@ -107,6 +109,10 @@ public class World {
 			}
 				
 		}
+	}
+	
+	public String toString() {
+		return "World " + id + "\tcompleted: " + completed;
 	}
 	
 	

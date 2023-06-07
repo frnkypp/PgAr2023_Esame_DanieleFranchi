@@ -18,13 +18,18 @@ public class Entity {
 		return attack;
 	}
 	
+	public void setHealth(double value) {
+		health = value;
+	}
+	
+	public void setAttack(double value) {
+		attack = value;
+	}
+	
 	public void receiveDamage(double amount) {
 		health-=amount;
 	}
 	
-	public void receiveHealth(double amount) {
-		health+=amount;
-	};
 
 	public void attack(Entity entity) {
 		entity.receiveDamage(attack);

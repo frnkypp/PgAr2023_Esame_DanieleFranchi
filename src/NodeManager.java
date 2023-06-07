@@ -51,12 +51,66 @@ public class NodeManager {
 		return null;
 	}
 	
+	
+//	public boolean availablePath(Node pivot, ArrayList<Node>oldVirtualVisitedNodes) {
+//		System.out.println("Pivot : " + pivot.getId());
+//		ArrayList<Node> availableNodes= new ArrayList<Node>();
+//		for(Node n : pivot.getLinkedNodes()) {
+//			if(! oldVirtualVisitedNodes.contains(n)) {
+//				availableNodes.add(n);
+//				System.out.println("Node " + n.getId() + " available");
+//			}
+//		}
+//		
+//		System.out.println("\n");
+//		
+//		if(availableNodes.isEmpty())
+//			return false;
+//		
+//		boolean pathFound=false;
+//		for(Node n : availableNodes) {
+//			if(n.getNodeType()==Node.nodeType.FINISH) {
+//				System.out.println("Path available");
+//				pathFound=true;
+//			}
+//			else {
+//				System.out.println("Check for " + n.getId());
+//				ArrayList<Node>virtualVisitedNodes = (ArrayList<Node>)oldVirtualVisitedNodes.clone();
+//				virtualVisitedNodes.add(pivot);
+//				if(availablePath(n, virtualVisitedNodes))
+//					return true;
+//				}
+//			}
+//		return pathFound;
+//	}
+//
+//	public boolean availablePath2(Node pivot, ArrayList<Node>visitedNodes) {
+//		Node finish=getFinishNode();
+//		ArrayList<Node>availableNodes = (ArrayList<Node>)nodes.clone();
+//		
+//		for(Node n : visitedNodes) {
+//			if(visitedNodes.contains(n))
+//				availableNodes.remove(n);
+//		}
+//		
+//		ArrayList<Node>consideredNodes= new ArrayList<Node>();
+//		for(Node p : pivot.getLinkedNodes())
+//			if(availableNodes.contains(p))
+//				if(p.getNodeType()==Node.nodeType.FINISH)
+//					return true;
+//				else consideredNodes.add(p);
+//		
+//		for(consideredNodes.clone())
+//		
+//		return false;
+//	}
+	
 	public ArrayList<Node> getNextNodes() {
 		ArrayList<Node> nextNodes = new ArrayList<Node>();
 		if(currentNode.getLinkedNodes().isEmpty() )
 			return null;
 		else for(Node n : currentNode.getLinkedNodes())
-				if( !visitedNodes.contains(n) )
+				if( (!visitedNodes.contains(n)))
 					nextNodes.add(n);
 		
 		return nextNodes;
@@ -113,7 +167,12 @@ public class NodeManager {
 		e.linkNode(finish);
 		
 		currentNode=start;
+		visitedNodes.add(start);
 		
 		return nodes;
+	}
+	
+	public ArrayList<Node> generateGraph(){
+		return null;
 	}
 }

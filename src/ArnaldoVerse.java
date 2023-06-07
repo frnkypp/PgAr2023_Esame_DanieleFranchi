@@ -1,15 +1,9 @@
 
 public class ArnaldoVerse {
 	public static void main(String args[]) {
-		System.out.println("Test");
+		System.out.println("ArnaldoVerse\n\n");
 		
-		
-		
-		Modifier m = new Modifier(Modifier.modifierType.ATTACK,-5,5);
-		System.out.println(m);
-		
-		World w1= new World(30);
-		Player p1 = new Player("tizio");
-		w1.play(p1);
+		GameManager gm = new GameManager();
+		gm.play();
 	}
 }
