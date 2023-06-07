@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class NodeManager {
-	private ArrayList<Node> nodes;
-	private ArrayList<Node> visitedNodes;
+	private ArrayList<Node> nodes= new ArrayList<Node>();
+	private ArrayList<Node> visitedNodes= new ArrayList<Node>();
 	private Node currentNode;
 	
 	public NodeManager() {}
@@ -10,6 +10,9 @@ public class NodeManager {
 		this.nodes=nodes;
 		Node start = this.getStartNode();
 		visitedNodes.add(start);
+	}
+	public Node getCurrentNode() {
+		return currentNode;
 	}
 	
 	public Node getStartNode() {
@@ -20,12 +23,24 @@ public class NodeManager {
 		return null;
 	}
 	
+	public boolean onStartingNode() {
+		if(currentNode.getNodeType()==Node.nodeType.START)
+			return true;
+		else return false;
+	}
+	
 	public Node getFinishNode() {
 		for(Node n: nodes)
 			if(n.getNodeType()==Node.nodeType.FINISH)
 				return n;
 		
 		return null;
+	}
+	
+	public boolean onFinalNode() {
+		if(currentNode.getNodeType()==Node.nodeType.FINISH)
+			return true;
+		else return false;
 	}
 	
 	public Node getNodeById(int id) {
@@ -96,6 +111,8 @@ public class NodeManager {
 		c.linkNode(d);
 		d.linkNode(e);
 		e.linkNode(finish);
+		
+		currentNode=start;
 		
 		return nodes;
 	}

@@ -7,7 +7,7 @@ public class Node {
 	private Node previousNode;
 	private ArrayList<Node> linkedNodes=new ArrayList<Node>();
 	
-	private static int idCounter;
+	private static int idCounter=0;
 	
 	
 	public int getId() {return id;}
