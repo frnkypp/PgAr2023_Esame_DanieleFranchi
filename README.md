@@ -3,10 +3,10 @@
 
 |                |                    |
 | -------------- | ------------------ |
-| Nome           | **<Daniele Miguel>**|
-| Cognome        | **<Franchi>**      |
-| Matricola      | **<743230>**       |
-| Corso di Studi | **<Ing. inf>**     |
+| Nome           | **Daniele Miguel**|
+| Cognome        | **Franchi**      |
+| Matricola      | **743230**       |
+| Corso di Studi | **Ing. inf**     |
 
 ## Moduli Implementati
 
