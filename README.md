@@ -1,4 +1,4 @@
-# PgAr2023_Esame_ < Daniele Franchi >
+# PgAr2023_Esame_DanieleFranchi
  ## Candidato
 
 |                |                    |
